@@ -1,4 +1,4 @@
-iabetes Risk Predictor: An End-to-End Machine Learning System with a Flask Web App
+Diabetes Risk Predictor: An End-to-End Machine Learning System with a Flask Web App
 
 A full end-to-end machine learning and Flask web application that predicts diabetes risk and explains each prediction, for individual patients or whole CSV files. Built with Python, scikit-learn, pandas, SHAP, and Flask, this project covers the whole path from raw data to an interactive tool: ingestion, training, evaluation, explainability and a redesigned dashboard.
 
@@ -7,7 +7,7 @@ A full end-to-end machine learning and Flask web application that predicts diabe
 End-to-End Machine Learning Pipeline — data processing → training → evaluation → explainability.
 Interactive Flask Dashboard — real-time single & batch prediction app powered by the trained model.
 
-Educational project. Not a medical device and not medical advice.
+Educational project. Not a medical device and not medical advice
 
 Highlights
 Automated ML Pipeline: Modular scripts for loading, preprocessing, EDA, training, evaluation, and model explainability.
@@ -22,11 +22,13 @@ Results
 Measured on the Pima Indians Diabetes dataset (768 patients) with the gradient boosting model the dashboard loads:
 
 Metric	Score
-ROC AUC (held-out test data)	0.81
-ROC AUC (5-fold cross-validation)	0.83 ± 0.03
-F1 score	0.61
+ROC AUC (held-out test data)       	0.81
+ROC AUC (5-fold cross-validation)	  0.83 ± 0.03
+F1 score	                           0.61
 
-Project Architecture
+## Project Architecture
+
+```text
 Diabetes-Risk-Prediction-Project/
 ├── data/                          # raw dataset (diabetes.csv)
 ├── models/                        # saved ML model (.joblib)
@@ -53,8 +55,11 @@ Diabetes-Risk-Prediction-Project/
 ├── main.py                        # unified pipeline runner
 ├── requirements.txt
 └── README.md
+```
 
-Local run:
+## Local Run
+
+```bash
 # 1. Get the code
 git clone https://github.com/Hamza-khan53/diabetes.git
 cd diabetes
@@ -68,8 +73,18 @@ pip install -r requirements.txt
 
 # 4. Run the Flask app
 python -m src.dashboard.app
+```
 
-# 5. Visit
-http://127.0.0.1:5000
-set DASHBOARD_MODEL=reports/models/rf_best.joblib      # macOS/Linux: export DASHBOARD_MODEL=...
+Then open http://127.0.0.1:5000 in your browser.
+
+To use a specific model file, set `DASHBOARD_MODEL` first:
+
+```bash
+# Windows
+set DASHBOARD_MODEL=reports/models/rf_best.joblib
+
+# macOS/Linux
+export DASHBOARD_MODEL=reports/models/rf_best.joblib
+
 python -m src.dashboard.app
+```
